@@ -24,14 +24,9 @@ type DailyActivities = {
 type BlogCards = {
     avatar: string;
     coveravatar: string;
-    read: string;
     title: string;
     link: string;
-    category: string;
-    name: string;
-    view: string;
-    comments: string;
-    time: string;
+    color: string;
 };
 
 export type{RevenueProjects,DailyActivities,BlogCards}
