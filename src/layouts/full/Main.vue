@@ -38,7 +38,7 @@ const sDrawer = ref(true);
                 </template>
             </v-list>
             <div class="pa-4">
-                <Upgradeversion/>
+<!--                <Upgradeversion/>-->
             </div>
         </perfect-scrollbar>
     </div>
@@ -51,7 +51,7 @@ const sDrawer = ref(true);
                 <v-btn class="hidden-lg-and-up ms-md-3 ms-sm-5 ms-3 text-muted" @click="sDrawer = !sDrawer" icon variant="flat"
                     size="small">
                     <Icon icon="solar:hamburger-menu-outline" height="20"></Icon>
-                  
+
                 </v-btn>
                 <!-- Notification -->
                 <NotificationDD />

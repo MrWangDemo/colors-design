@@ -35,17 +35,17 @@ const sidebarItem: menu[] = [
         icon: 'watch-square-minimalistic-charge-line-duotone',
         to: '/ui/shadow'
     },
-    { header: 'auth' },
-    {
-        title: 'Login',
-        icon: 'login-3-line-duotone',
-        to: '/auth/login'
-    },
-    {
-        title: 'Register',
-        icon: 'user-plus-rounded-line-duotone',
-        to: '/auth/register'
-    },
+    //{ header: 'auth' },
+    // {
+    //     title: 'Login',
+    //     icon: 'login-3-line-duotone',
+    //     to: '/auth/login'
+    // },
+    // {
+    //     title: 'Register',
+    //     icon: 'user-plus-rounded-line-duotone',
+    //     to: '/auth/register'
+    // },
     { header: 'Extra' },
     {
         title: 'Icons',
