@@ -1,13 +1,15 @@
 <script setup lang="ts">
-import { BlogCardData } from '@/data/Dashboard';
 
-function createStyle(color) {
-  return "background-color:"+color+";";
-}
+
+const props = defineProps(['data','title'])
+
 </script>
 <template>
     <v-row>
-        <v-col cols="12" lg="4" v-for="card in BlogCardData" :key="card.title">
+        <v-col cols="12">
+            <h5 class="text-h3 my-3 custom-text-primary">{{title}}}</h5>
+        </v-col>
+        <v-col cols="12" lg="4" v-for="card in data" :key="card.title">
             <v-card elevation="5"  rounded="md" class="card-hover">
                 <div>
                     <v-card-item :style="{backgroundColor:card.color}" height="250px" cover class="rounded-t-md align-end text-right">
