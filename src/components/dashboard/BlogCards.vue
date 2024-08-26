@@ -8,21 +8,14 @@
     const copyButton = ref(null);
     const copySuccess = ref(false);
     const show = ref(true);
+    const copyId = 'copyId';
+    const  copyText = ref('');
     let clipboard = null;
     const { data, title } = props;
     console.log('data',data)
     onMounted(() => {
 
-      clipboard = new ClipboardJS("test1123");
 
-      clipboard.on('success', () => {
-        copySuccess.value = true;
-      });
-
-      clipboard.on('error', () => {
-        copySuccess.value = false;
-        console.error('复制失败');
-      });
     });
 
     onUnmounted(() => {
@@ -33,10 +26,20 @@
 
    function onClick(index){
      console.log("点击事件",index)
-     show.value = index;
-     setTimeout(() => {
-       show.value = false;
-     }, 2000);
+     clipboard = new ClipboardJS(`.${copyId}`);
+     clipboard.on('success', (text) => {
+       show.value = index;
+       copyText.value = text.text;
+       console.log("复制成功，",text.text)
+       setTimeout(() => {
+         show.value = false;
+       }, 4000);
+     });
+
+     clipboard.on('error', () => {
+       console.error('复制失败');
+     });
+
    }
 
 </script>
@@ -61,12 +64,9 @@
 <!--                        <v-chip class="text-body-2 font-weight-medium bg-grey100" size="small" rounded="sm" v-text="card.category"></v-chip>-->
                         <div class="text-h4 " style="display: flex;align-items: center">
                             <span style="height: 20px" class="text-decoration-none color-inherits custom-title icon" :to="card.link">{{ card.title }}</span>
-                            <div class="copy-success" :class="show===index?'show':''">复制成功!</div>
-                            <Icon v-bind="props" style="margin-left: 50px;"  class="icon" icon="mingcute:copy-line" height="32" width="32" @click="onClick(index)">
+                            <div class="copy-success" :class="show===index?'show':''">复制成功!复制内容：{{copyText}}</div>
+                            <Icon :data-clipboard-text="card.color" v-bind="props" style="margin-left: 60px;"  class="icon" :class="copyId" icon="mingcute:copy-line" height="32" width="32" @click="onClick(index)">
                             </Icon>
-
-
-
                         </div>
 
 <!--                        <div class="d-flex align-center justify-space-between">-->
@@ -109,12 +109,13 @@
         transform: translate(-50%, -50%);
         background-color: #4CAF50; /* 绿色背景 */
         color: white; /* 白色文本 */
-        padding: 10px 20px;
+        padding: 10px 10px;
         border-radius: 5px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         font-size: 16px;
         display: none;
         transition: opacity 0.3s ease-in-out;
+        text-align: center;
     }
 
     .copy-success.show {
