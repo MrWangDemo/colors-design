@@ -1,15 +1,51 @@
 <script setup lang="ts">
+    import { Icon } from '@iconify/vue';
 
+    import { ref, onMounted, onUnmounted } from 'vue';
+    import ClipboardJS from 'clipboard';
 
-const props = defineProps(['data','title'])
+    const props = defineProps(['data','title'])
+    const copyButton = ref(null);
+    const copySuccess = ref(false);
+    const show = ref(true);
+    let clipboard = null;
+    const { data, title } = props;
+    console.log('data',data)
+    onMounted(() => {
+
+      clipboard = new ClipboardJS("test1123");
+
+      clipboard.on('success', () => {
+        copySuccess.value = true;
+      });
+
+      clipboard.on('error', () => {
+        copySuccess.value = false;
+        console.error('复制失败');
+      });
+    });
+
+    onUnmounted(() => {
+      if (clipboard) {
+        clipboard.destroy();
+      }
+    });
+
+   function onClick(index){
+     console.log("点击事件",index)
+     show.value = index;
+     setTimeout(() => {
+       show.value = false;
+     }, 2000);
+   }
 
 </script>
 <template>
     <v-row>
         <v-col cols="12">
-            <h5 class="text-h3 my-3 custom-text-primary">{{title}}}</h5>
+            <h5 class="text-h3 my-3 custom-text-primary">{{title}}</h5>
         </v-col>
-        <v-col cols="12" lg="4" v-for="card in data" :key="card.title">
+        <v-col cols="12" lg="4" v-for="(card,index) in data" :key="card.title">
             <v-card elevation="5"  rounded="md" class="card-hover">
                 <div>
                     <v-card-item :style="{backgroundColor:card.color}" height="250px" cover class="rounded-t-md align-end text-right">
@@ -23,9 +59,16 @@ const props = defineProps(['data','title'])
 <!--                    </v-avatar>-->
                     <v-card-item :style="{backgroundColor:card.color}" class="pt-4">
 <!--                        <v-chip class="text-body-2 font-weight-medium bg-grey100" size="small" rounded="sm" v-text="card.category"></v-chip>-->
-                        <h5 class="text-h5 text-13 my-3 custom-text-primary">
-                            <RouterLink class="text-decoration-none color-inherits custom-title" :to="card.link">{{ card.title }}</RouterLink>
-                        </h5>
+                        <div class="text-h4 " style="display: flex;align-items: center">
+                            <span style="height: 20px" class="text-decoration-none color-inherits custom-title icon" :to="card.link">{{ card.title }}</span>
+                            <div class="copy-success" :class="show===index?'show':''">复制成功!</div>
+                            <Icon v-bind="props" style="margin-left: 50px;"  class="icon" icon="mingcute:copy-line" height="32" width="32" @click="onClick(index)">
+                            </Icon>
+
+
+
+                        </div>
+
 <!--                        <div class="d-flex align-center justify-space-between">-->
 <!--                            <div>-->
 <!--&lt;!&ndash;                                <v-avatar class="" size="18">&ndash;&gt;-->
@@ -50,3 +93,31 @@ const props = defineProps(['data','title'])
         </v-col>
     </v-row>
 </template>
+<style type="scss">
+    .icon{
+        cursor: pointer;
+
+    }
+    .icon:hover{
+        color: rgb(var(--v-theme-primary)) !important;
+    }
+
+    .copy-success {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #4CAF50; /* 绿色背景 */
+        color: white; /* 白色文本 */
+        padding: 10px 20px;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        font-size: 16px;
+        display: none;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .copy-success.show {
+        display: block;
+    }
+</style>

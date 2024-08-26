@@ -6,7 +6,7 @@ import Totalincome from '@/components/dashboard/TotalIncome.vue';
 import RevenueProduct from '@/components/dashboard/RevenueProducts.vue';
 import DailyActivities from '@/components/dashboard/DailyActivities.vue';
 import BlogCards from '@/components/dashboard/BlogCards.vue';
-import { BlogCardData } from '@/data/Dashboard';
+import { BlogCardData,BlogCardData_blue } from '@/data/Dashboard';
 </script>
 
 <template>
@@ -25,7 +25,10 @@ import { BlogCardData } from '@/data/Dashboard';
 <!--                    <h3>中国传统色彩-紫色</h3>-->
 <!--                </v-card-title>-->
                 <v-card-item>
+
                     <BlogCards :data="BlogCardData" title="中国传统色彩-紫色"/>
+                    <v-divider color="rgb(164, 171, 214)" style="margin-top: 50px"></v-divider>
+                    <BlogCards :data="BlogCardData_blue" title="中国传统色彩-蓝色"/>
                 </v-card-item>
 <!--            </v-card>-->
         </v-col>

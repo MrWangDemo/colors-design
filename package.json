@@ -14,6 +14,7 @@
         "@tiptap/starter-kit": "2.2.2",
         "@tiptap/vue-3": "2.2.2",
         "apexcharts": "3.45.2",
+        "clipboard": "^2.0.11",
         "date-fns": "^2.29.3",
         "lodash": "^4.17.21",
         "maska": "^1.5.0",

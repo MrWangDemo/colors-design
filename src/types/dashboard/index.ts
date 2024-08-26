@@ -29,4 +29,4 @@ type BlogCards = {
     color: string;
 };
 
-export type{RevenueProjects,DailyActivities,BlogCards}
+export type{RevenueProjects,BlogCards}

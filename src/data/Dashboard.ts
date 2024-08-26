@@ -1,4 +1,4 @@
-import type { RevenueProjects,BlogCards,DailyActivities } from '@/types/dashboard/index';
+import type { RevenueProjects,BlogCards } from '@/types/dashboard/index';
 
 import product1 from "@/assets/images/products/dash-prd-1.jpg";
 import product2 from "@/assets/images/products/dash-prd-2.jpg";
@@ -161,64 +161,136 @@ const BlogCardData: BlogCards[] = [
     }
 ];
 
-/*--Daily Activities--*/
-const DailyActivitiesData  : DailyActivities[] = [
-    {
-        title:'09:30 am',
-        subtitle:'Payment received from John Doe of $385.90',
-        textcolor:'primary',
-        boldtext:false,
-        line:true,
-        link:'',
-        url:''
-      },
-      {
-        title:'10:00 am',
-        subtitle:'New sale recorded',
-        textcolor:'secondary',
-        boldtext:true,
-        line:true,
-        link:'#ML-3467',
-        url:''
-      },
-      {
-        title:'12:00 am',
-        subtitle:'Payment was made of $64.95 to Michael',
-        textcolor:'success',
-        boldtext:false,
-        line:true,
-        link:'',
-        url:''
-      },
-      {
-        title:'09:30 am',
-        subtitle:'New sale recorded',
-        textcolor:'warning',
-        boldtext:true,
-        line:true,
-        link:'#ML-3467',
-        url:''
-      },
-      {
-        title:'09:30 am',
-        subtitle:'New arrival recorded',
-        textcolor:'error',
-        boldtext:true,
-        line:true,
-        link:'#ML-3467',
-        url:''
-      },
-      {
-        title:'12:00 am',
-        subtitle:'Payment Done',
-        textcolor:'success',
-        boldtext:false,
-        line:false,
-        link:'',
-        url:''
-      },
+
+const BlogCardData_blue: BlogCards[] = [
+  {
+    avatar: user1,
+    coveravatar: img1,
+    read: '2 min Read',
+    title: '中国传统色彩-清水蓝',
+    link: '/',
+    color:'#93D5DC',
+  }, {
+    avatar: user1,
+    coveravatar: img1,
+    read: '2 min Read',
+    title: '中国传统色彩-瀑布蓝',
+    link: '/',
+    color:'#51C4D3',
+  },{
+    avatar: user1,
+    coveravatar: img1,
+    read: '2 min Read',
+    title: '中国传统色彩-云水蓝',
+    link: '/',
+    color:'#BACCD9',
+  },{
+    avatar: user1,
+    coveravatar: img1,
+    read: '2 min Read',
+    title: '中国传统色彩-星蓝',
+    link: '/',
+    color:'#93B5CF',
+  },{
+    avatar: user1,
+    coveravatar: img1,
+    read: '2 min Read',
+    title: '中国传统色彩-晴山蓝',
+    link: '/',
+    color:'#8FB2C9',
+  },{
+    avatar: user1,
+    coveravatar: img1,
+    read: '2 min Read',
+    title: '中国传统色彩-秋波蓝',
+    link: '/',
+    color:'#BABCD1',
+  },{
+    avatar: user1,
+    coveravatar: img1,
+    read: '2 min Read',
+    title: '中国传统色彩-涧石蓝',
+    link: '/',
+    color:'#66A9C9',
+  },{
+    avatar: user1,
+    coveravatar: img1,
+    read: '2 min Read',
+    title: '中国传统色彩-蔚蓝',
+    link: '/',
+    color:'#29B7CB',
+  },{
+    avatar: user1,
+    coveravatar: img1,
+    read: '2 min Read',
+    title: '中国传统色彩-孔雀蓝',
+    link: '/',
+    color:'#0EB0C9',
+  },{
+    avatar: user1,
+    coveravatar: img1,
+    read: '2 min Read',
+    title: '中国传统色彩-翠蓝',
+    link: '/',
+    color:'#1E9EB3',
+  },{
+    avatar: user1,
+    coveravatar: img1,
+    read: '2 min Read',
+    title: '中国传统色彩-云山蓝',
+    link: '/',
+    color:'#2F90B9',
+  },{
+    avatar: user1,
+    coveravatar: img1,
+    read: '2 min Read',
+    title: '中国传统色彩-宝石蓝',
+    link: '/',
+    color:'#2486B9',
+  },{
+    avatar: user1,
+    coveravatar: img1,
+    read: '2 min Read',
+    title: '中国传统色彩-海军蓝',
+    link: '/',
+    color:'#346C9C',
+  },{
+    avatar: user1,
+    coveravatar: img1,
+    read: '2 min Read',
+    title: '中国传统色彩-虹蓝',
+    link: '/',
+    color:'#2177B8',
+  },{
+    avatar: user1,
+    coveravatar: img1,
+    read: '2 min Read',
+    title: '中国传统色彩-景泰蓝',
+    link: '/',
+    color:'#2775B6',
+  },{
+    avatar: user1,
+    coveravatar: img1,
+    read: '2 min Read',
+    title: '中国传统色彩-靛青',
+    link: '/',
+    color:'#1661AB',
+  },{
+    avatar: user1,
+    coveravatar: img1,
+    read: '2 min Read',
+    title: '中国传统色彩-钢青',
+    link: '/',
+    color:'#142334',
+  },{
+    avatar: user1,
+    coveravatar: img1,
+    read: '2 min Read',
+    title: '中国传统色彩-暗蓝',
+    link: '/',
+    color:'#101F30',
+  }
 ]
 
 
-
-export {RevenueProjectsData,BlogCardData,DailyActivitiesData}
+export {RevenueProjectsData,BlogCardData,BlogCardData_blue}
